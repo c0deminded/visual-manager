@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b5284fdbdd14645af003fd89230c84, type: 3}
   m_Name: CommonAssets
   m_EditorClassIdentifier: 
-  representationSwitcherCanvas: {fileID: 0}
+  representationSwitcherCanvas: {fileID: 4393522376043175165, guid: ded9c137df61bf94590fea26856e617a,
+    type: 3}
