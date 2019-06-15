@@ -33,6 +33,8 @@ GameManager.Instance.DecorateActionWithSwitcher(() => OpenRepresentation(hierarc
         };
 
         switchReprButtons.InitActions(actions, 0);
+
+        SetDefaultState();
     }
 
     public void OpenRepresentation(RepresentationObject repr)
@@ -45,6 +47,11 @@ GameManager.Instance.DecorateActionWithSwitcher(() => OpenRepresentation(hierarc
         currentRepresentation = repr;
         currentRepresentation.OpenRepresentation();
         GameManager.Instance.loadingIndicator.DisableLoadingIndicator();
+    }
+
+    void SetDefaultState()
+    {
+        hierarchyRepresentation.gameObject.SetActive(true);
     }
 
 

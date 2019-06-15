@@ -6,7 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
 
     [SerializeField] List<BoxCollider> limitColliderList;
-    [SerializeField] float moveSpeed;
+    [SerializeField] float inertia;
     [SerializeField] LayerMask layerMaskForBaseCollider;
     [SerializeField] LayerMask layerMaskForLimits;
 
@@ -36,6 +36,7 @@ public class CameraMovement : MonoBehaviour
 
     Vector3 currentMovementVector;
     Vector3 prevScreenPointOfRaycast;
+    Vector3 inertiaVector;
     RaycastHit hit;
     RaycastHit hit2;
     bool movePerformed = false;
@@ -67,8 +68,12 @@ public class CameraMovement : MonoBehaviour
             }
             else
             {
+                if (movePerformed)
+                    inertiaVector = currentMovementVector;
                 movePerformed = false;
                 prevScreenPointOfRaycast = Vector3.zero;
+                transform.position -= inertiaVector * Time.deltaTime * inertia;
+                inertiaVector = Vector3.Lerp(inertiaVector, Vector3.zero, Time.timeScale);
             }
 
 

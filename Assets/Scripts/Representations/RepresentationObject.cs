@@ -9,11 +9,19 @@ public class RepresentationObject : MonoBehaviour, IRepresentationObject
     public Color ambientLightingColor;
     public float ambientIntencity;
 
-    public virtual void OpenRepresentation()
+    RepresentationObject parentRepresentation;
+
+    void Awake()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public virtual void OpenRepresentation(RepresentationObject parent = null)
     {
         myGameObject.SetActive(true);
         RenderSettings.ambientLight = ambientLightingColor;
         RenderSettings.ambientIntensity = ambientIntencity;
+        // todo if parent != null
     }
 
     public virtual void CloseRepresentation()
@@ -25,6 +33,6 @@ public class RepresentationObject : MonoBehaviour, IRepresentationObject
 
 public interface IRepresentationObject
 {
-    void OpenRepresentation();
+    void OpenRepresentation(RepresentationObject parent = null);
     void CloseRepresentation();
 }
