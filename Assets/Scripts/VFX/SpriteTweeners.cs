@@ -16,6 +16,11 @@ public class SpriteTweeners
         monoBeh.StartCoroutine(ScaleCrossFromValueToValue(sprite, startScale, endScale, time, startDelay));
     }
 
+    public static void SpriteScaleCrossFromVectorToVector(MonoBehaviour monoBeh, Transform sprite, Vector3 startScale, Vector3 endScale, float time, float startDelay = -1)
+    {
+        monoBeh.StartCoroutine(ScaleCrossFromVectorToVector(sprite, startScale, endScale, time, startDelay));
+    }
+
     public static void SpriteScaleViaCurve(MonoBehaviour monoBeh, Transform sprite, AnimationCurve curve, float mult, float time)
     {
         monoBeh.StartCoroutine(ScaleSpriteViaCurve(sprite, curve, mult, time));
@@ -62,6 +67,24 @@ public class SpriteTweeners
     {
         Vector3 startScaleV = Vector3.one * startScale;
         Vector3 endScaleV = Vector3.one * endScale;
+        if (startDelay > 0)
+            yield return new WaitForSeconds(startDelay);
+        float t = 0;
+        float speed = 1 / time;
+        while (t < 1)
+        {
+            sprite.localScale = Vector3.Lerp(startScaleV, endScaleV, t);
+            t += Time.deltaTime * speed;
+            yield return null;
+        }
+        sprite.localScale = endScaleV;
+        yield break;
+    }
+
+    static IEnumerator ScaleCrossFromVectorToVector(Transform sprite, Vector3 startScale, Vector3 endScale, float time, float startDelay)
+    {
+        Vector3 startScaleV = startScale;
+        Vector3 endScaleV = endScale;
         if (startDelay > 0)
             yield return new WaitForSeconds(startDelay);
         float t = 0;

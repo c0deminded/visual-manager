@@ -16,7 +16,7 @@ TagManager:
   - PostProcessing
   - BaseCameraCollider
   - LimitsCameraCollider
-  - 
+  - ClickableItems
   - 
   - 
   - 

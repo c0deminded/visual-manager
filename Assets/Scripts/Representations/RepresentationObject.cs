@@ -8,6 +8,7 @@ public class RepresentationObject : MonoBehaviour, IRepresentationObject
     public GameObject myGameObject;
     public Color ambientLightingColor;
     public float ambientIntencity;
+    public Canvas representationCanvas;
 
     RepresentationObject parentRepresentation;
 
@@ -21,12 +22,16 @@ public class RepresentationObject : MonoBehaviour, IRepresentationObject
         myGameObject.SetActive(true);
         RenderSettings.ambientLight = ambientLightingColor;
         RenderSettings.ambientIntensity = ambientIntencity;
+        if (representationCanvas)
+            representationCanvas.gameObject.SetActive(true);
         // todo if parent != null
     }
 
     public virtual void CloseRepresentation()
     {
         myGameObject.SetActive(false);
+        if (representationCanvas)
+            representationCanvas.gameObject.SetActive(false);
     }
 
 }

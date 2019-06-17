@@ -141,9 +141,9 @@ TextureImporter:
       name: UI_01_1
       rect:
         serializedVersion: 2
-        x: 1732
+        x: 1734
         y: 1512
-        width: 156
+        width: 154
         height: 536
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

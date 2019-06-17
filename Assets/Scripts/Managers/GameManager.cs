@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public RepresentationManager representationManager;
     public LoadingIndicatorCanvas loadingIndicator;
+    public DataManager datManager;
+    public MyInputManager inputManager;
     bool isDecoratingNow;
 
     void Awake()
