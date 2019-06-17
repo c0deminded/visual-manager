@@ -14,6 +14,7 @@ TextureImporter:
     21300018: UI_01_9
     21300020: UI_01_10
     21300022: UI_01_11
+    21300024: UI_01_12
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -353,6 +354,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9f9f7016b04737347993ddb8dd434db4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_01_12
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 1381
+        width: 321
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c244b1e12b94b65478b5695b2e589be4
       vertices: []
       indices: 
       edges: []

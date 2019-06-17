@@ -5,5 +5,4 @@ using UnityEngine;
 public interface ISelectable 
 {
     void Select();
-    //add another shit but lator
 }

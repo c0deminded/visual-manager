@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
+    public Color buttonColor;
+    public Color activeButtonColor;
     public Color[] dataColors;
-
+    public Color[] dataColors2;
 
 }

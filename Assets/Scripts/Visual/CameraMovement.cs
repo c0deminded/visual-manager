@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
 
-    [SerializeField] List<BoxCollider> limitColliderList;
     [SerializeField] float inertia;
+    [SerializeField] float scrollSpeed;
     [SerializeField] LayerMask layerMaskForBaseCollider;
     [SerializeField] LayerMask layerMaskForLimits;
 
@@ -39,6 +39,7 @@ public class CameraMovement : MonoBehaviour
     Vector3 inertiaVector;
     RaycastHit hit;
     RaycastHit hit2;
+    Collider[] limitHits;
     bool movePerformed = false;
 
     void MoveUpdate()
@@ -52,16 +53,18 @@ public class CameraMovement : MonoBehaviour
                     currentMovementVector = hit.point - hit2.point;
                     prevScreenPointOfRaycast = Input.mousePosition;
 
+
+
                     if (!movePerformed)
                     {
                         movePerformed = true;
                     }
                     else
                     {
-                        Collider[] limitHits = Physics.OverlapSphere(currentCamera.transform.position - currentMovementVector, 0.5f, layerMaskForLimits.value);
+                        limitHits = Physics.OverlapSphere(currentCamera.transform.position - currentMovementVector, 0.5f, layerMaskForLimits.value);
                         if (limitHits.Length == 0)
                         {
-                            currentCamera.transform.position = currentCamera.transform.position - currentMovementVector;
+                            currentCamera.transform.position = currentCamera.transform.position - currentMovementVector ;
                         }
                     }
                 }
@@ -77,7 +80,15 @@ public class CameraMovement : MonoBehaviour
             }
 
 
-
+        // zoom zoom
+        float scaleValue = 0;
+        scaleValue = Input.mouseScrollDelta.y * scrollSpeed;
+        limitHits = Physics.OverlapSphere(currentCamera.transform.position + currentCamera.transform.forward * scaleValue, 0.5f, layerMaskForLimits.value);
+        if (limitHits.Length == 0)
+        {
+            currentCamera.transform.position += currentCamera.transform.forward * scaleValue;
+        }
+        
 
     }
 

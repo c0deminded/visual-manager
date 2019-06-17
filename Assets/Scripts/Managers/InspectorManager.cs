@@ -8,6 +8,7 @@ public class InspectorManager : MonoBehaviour
 
     public Text unitName;
     public Text unitDesc;
+    public Text time;
 
     public static InspectorManager Instance;
     // Start is called before the first frame update
@@ -21,4 +22,21 @@ public class InspectorManager : MonoBehaviour
         unitName.text = unit.naming;
         unitDesc.text = unit.desc;
     }
+
+
+    void Update()
+    {
+        UpdateTime();
+    }
+
+
+    void UpdateTime()
+    {
+        int minutes = System.DateTime.Now.Minute;
+        int hours = System.DateTime.Now.Hour;
+
+        time.text = (hours > 9 ? hours.ToString() : "0" + hours.ToString()) + ":" +
+                (minutes > 9 ? minutes.ToString() : "0" + minutes.ToString());
+    }
+
 }
