@@ -82,7 +82,27 @@ public class CameraMovement : MonoBehaviour
 
         // zoom zoom
         float scaleValue = 0;
+        float cameraZoomMagnitude = 0;
         scaleValue = Input.mouseScrollDelta.y * scrollSpeed;
+
+        if (Input.touchCount == 2) // multitouch
+        {
+            Touch touchZero = Input.GetTouch(0);
+            Touch touchOne = Input.GetTouch(1);
+
+            Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
+            Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+
+            float prevTouchDeltaMag = (touchZeroPrevPos - touchOnePrevPos).magnitude;
+            float touchDeltaMag = (touchZero.position - touchOne.position).magnitude;
+
+            cameraZoomMagnitude = (prevTouchDeltaMag - touchDeltaMag);
+        }
+        else
+            cameraZoomMagnitude = 0;
+
+        scaleValue += cameraZoomMagnitude;
+
         limitHits = Physics.OverlapSphere(currentCamera.transform.position + currentCamera.transform.forward * scaleValue, 0.5f, layerMaskForLimits.value);
         if (limitHits.Length == 0)
         {

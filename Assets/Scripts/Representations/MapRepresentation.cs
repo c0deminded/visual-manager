@@ -9,7 +9,14 @@ public class MapRepresentation : RepresentationObject
     [SerializeField] List<BuildingDataRepresentation> childRepresentations;
     [SerializeField] Button showCubesButton;
     [SerializeField] Button showCirclesButton;
+    [SerializeField] RectTransform helpersContainer;
+    [SerializeField] Vector3 helpersInactivePos;
+    [SerializeField] Vector3 helpersActivePos;
+    [SerializeField] Image[] dataImages;
+    [SerializeField] Image[] dataImagesContainers;
+    [SerializeField] Text[] dataTexts;
 
+    Vector3 currentTargetPosForHelpers;
     bool circlesAreShown = false;
     bool cubesAreShown = false;
 
@@ -22,6 +29,8 @@ public class MapRepresentation : RepresentationObject
             }
         showCubesButton.onClick.AddListener(ShowCubes);
         showCirclesButton.onClick.AddListener(ShowCircles);
+        helpersContainer.anchoredPosition = helpersInactivePos;
+        currentTargetPosForHelpers = helpersInactivePos;
     }
 
 
@@ -65,6 +74,7 @@ public class MapRepresentation : RepresentationObject
         }
         cubesAreShown = !cubesAreShown;
         showCubesButton.targetGraphic.color = cubesAreShown ? GameManager.Instance.datManager.activeButtonColor : GameManager.Instance.datManager.buttonColor;
+        ManageHelpers();
     }
 
     public void ShowCircles()
@@ -91,8 +101,39 @@ public class MapRepresentation : RepresentationObject
         }
         circlesAreShown = !circlesAreShown;
         showCirclesButton.targetGraphic.color = circlesAreShown? GameManager.Instance.datManager.activeButtonColor : GameManager.Instance.datManager.buttonColor;
+        ManageHelpers();
     }
 
+    void ManageHelpers(int count = 5)
+    {
+        for (int i = 0; i < dataImagesContainers.Length; i++)
+        {
+            dataImagesContainers[i].gameObject.SetActive(true);
+        }
+        if (circlesAreShown || cubesAreShown)
+        {
+            currentTargetPosForHelpers = helpersActivePos;
+        }
+        else
+        {
+            currentTargetPosForHelpers = helpersInactivePos;
+        }
+        for (int i =0; i < count; i++)
+        {
+            dataImages[i].color = GameManager.Instance.datManager.dataColors[i];
+            dataTexts[i].text = GameManager.Instance.datManager.dataValuesDescription[i];
+        }
+        for (int i = 0; i < dataImagesContainers.Length; i++)
+        {
+            if (i >= count)
+                dataImagesContainers[i].gameObject.SetActive(false);
+        }
+    }
+
+    void Update()
+    {
+        helpersContainer.anchoredPosition = Vector3.Lerp(helpersContainer.anchoredPosition, currentTargetPosForHelpers, Time.deltaTime * 10);
+    }
 
     #endregion;
 
