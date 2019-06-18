@@ -18,6 +18,10 @@ public class HierarchyRepresentation : RepresentationObject
     {
         showDepartmentsButton.onClick.RemoveAllListeners();
         showDepartmentsButton.onClick.AddListener(ShowDepartments);
+
+        canvasWithDepartments.gameObject.SetActive(false);
+        foreach (GameObject go in canvasesWithBosses)
+            go.SetActive(false);
     }
 
     public void ShowDepartments()
