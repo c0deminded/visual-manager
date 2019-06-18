@@ -20,11 +20,11 @@ public class DeliveryCar : MonoBehaviour
     void UpdateTargets()
     {
         float currentDist = Vector3.Distance(transform.position, targets[currentTargetId].position);
-        Debug.Log(currentDist + "//" +  stoppingDistance);
-        Debug.Log(currentDist <= stoppingDistance && agent.destination != null);
+        //Debug.Log(currentDist + "//" +  stoppingDistance);
+        //Debug.Log(currentDist <= stoppingDistance && agent.destination != null);
         if (currentDist <= stoppingDistance && agent.destination != null)
         {
-            currentTargetId = (currentTargetId+1)%3;
+            currentTargetId = (currentTargetId+1)%targets.Length;
             agent.destination = targets[currentTargetId].position;
         }
         else
