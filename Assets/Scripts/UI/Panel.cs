@@ -14,7 +14,7 @@ public class Panel : MonoBehaviour
     [SerializeField] Vector3 activePos;
     [SerializeField] Vector3 inactivePos;
     Vector3 currentTargetPos;
-    bool isActiveNow = false;
+    public bool isActiveNow = false;
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class Panel : MonoBehaviour
         offArrow.gameObject.SetActive(true);
     }
 
-    void SwitchState()
+    public void SwitchState()
     {
         if (isActiveNow)
         {

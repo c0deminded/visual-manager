@@ -11,7 +11,8 @@ public class InspectorManager : MonoBehaviour
     [SerializeField] Text time;
 
     [SerializeField] SwitchButton actionsStatsButton;
-    [SerializeField] GameObject[] statsAndActions; 
+    [SerializeField] GameObject[] statsAndActions;
+    [SerializeField] Panel myPanel;
 
     public static InspectorManager Instance;
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class InspectorManager : MonoBehaviour
         actions[0] = () => { SwitchStatsAndActions(true); };
         actions[1] = () => { SwitchStatsAndActions(false); };
         actionsStatsButton.InitActions(actions, 0);
+        actions[0].Invoke();
     }
 
     void Update()
@@ -33,6 +35,8 @@ public class InspectorManager : MonoBehaviour
     {
         unitName.text = unit.naming;
         unitDesc.text = unit.desc;
+        if (!myPanel.isActiveNow)
+            myPanel.SwitchState();
     }
 
     void UpdateTime()

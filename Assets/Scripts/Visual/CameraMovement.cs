@@ -45,6 +45,8 @@ public class CameraMovement : MonoBehaviour
 
     void MoveUpdate()
     {
+        if (GameManager.Instance.fingerIsOverUI)
+            return;
         if (!lockMovement) // movement screen space
             if (Input.GetMouseButton(0) && Input.touchCount < 2)
             {
