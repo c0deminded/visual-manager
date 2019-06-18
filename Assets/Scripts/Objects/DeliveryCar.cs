@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class DeliveryCar : BusinessUnit,IClickable
+public class DeliveryCar : BusinessUnit, IClickable
 {
     [HideInInspector] public Transform[] targets;
     float stoppingDistance = 1f;
@@ -19,7 +19,7 @@ public class DeliveryCar : BusinessUnit,IClickable
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        InvokeRepeating("UpdateTargets",0f,3f);
+        InvokeRepeating("UpdateTargets", 0f, 3f);
         naming = GameManager.Instance.datManager.GetRandomName();
         desc = GameManager.Instance.datManager.GetDriverDesc();
     }
@@ -27,16 +27,17 @@ public class DeliveryCar : BusinessUnit,IClickable
     // Update is called once per frame
     void UpdateTargets()
     {
-            float currentDist = Vector3.Distance(transform.position, targets[currentTargetId].position);
-            if (currentDist <= stoppingDistance && agent.destination != null)
-            {
-                currentTargetId = (currentTargetId + 1) % targets.Length;
+        float currentDist = Vector3.Distance(transform.position, targets[currentTargetId].position);
+        if (currentDist <= stoppingDistance && agent.destination != null)
+        {
+            currentTargetId = (currentTargetId + 1) % targets.Length;
+            if (agent.gameObject.activeInHierarchy)
                 agent.destination = targets[currentTargetId].position;
-            }
-            else
-            {
-                if (agent.gameObject.activeInHierarchy)
-                    agent.destination = targets[currentTargetId].position;
-            }
+        }
+        else
+        {
+            if (agent.gameObject.activeInHierarchy)
+                agent.destination = targets[currentTargetId].position;
+        }
     }
 }
