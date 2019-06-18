@@ -17,6 +17,7 @@ public class RepresentationManager : MonoBehaviour
 
     void Start()
     {
+        hierarchyRepresentation.CloseRepresentation();
         OpenRepresentation(buildingsRepresentation);
         UnityAction[] actions = new UnityAction[2];
         actions[0] = () =>

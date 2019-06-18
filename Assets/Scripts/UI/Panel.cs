@@ -23,6 +23,9 @@ public class Panel : MonoBehaviour
         currentTargetPos = inactivePos;
         onArrow.gameObject.SetActive(false);
         offArrow.gameObject.SetActive(true);
+
+        if (setToInactivePos)
+            panel.anchoredPosition = inactivePos;
     }
 
     public void SwitchState()

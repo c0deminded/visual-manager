@@ -20,6 +20,8 @@ public class DeliveryManager : MonoBehaviour
     // Update is called once per frame
     void InitDeliveryCar()
     {
+        if (!GameManager.Instance.representationManager.buildingsRepresentation.gameObject.activeSelf)
+            return;
         if (spawnWaves == 0) CancelInvoke();
         for (int i = 0; i < routes.Length; i++)
         {
@@ -27,6 +29,7 @@ public class DeliveryManager : MonoBehaviour
             {
                 shouldStop = false;
                 GameObject car = Instantiate(routes[i].carPrefab, routes[i].wayPoints[0].position, Quaternion.identity);
+                car.transform.SetParent(GameManager.Instance.representationManager.buildingsRepresentation.transform);
                 car.GetComponent<DeliveryCar>().targets = routes[i].wayPoints;
                 spawnWaves--;
             }
