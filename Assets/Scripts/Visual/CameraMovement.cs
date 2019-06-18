@@ -46,7 +46,7 @@ public class CameraMovement : MonoBehaviour
     void MoveUpdate()
     {
         if (!lockMovement) // movement screen space
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && Input.touchCount < 2)
             {
                 if (Physics.Raycast(currentCamera.ScreenPointToRay(Input.mousePosition), out hit, 3000, layerMaskForBaseCollider.value))
                 {
