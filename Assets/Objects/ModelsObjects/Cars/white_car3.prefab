@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6859054878018626705}
   - component: {fileID: 6869835693039782737}
   - component: {fileID: 6878003132978244657}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: car03_wheel04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 6859286319729056983}
   - component: {fileID: 6870076725400474949}
   - component: {fileID: 6877773092364105907}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: car03_wheel02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 6859020553473868709}
   - component: {fileID: 6869810115406897609}
   - component: {fileID: 6878257228907221011}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: car03_wheel03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 6858774424444868005}
   - component: {fileID: 6869411709269777437}
   - component: {fileID: 6877918799395378771}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: car3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,8 @@ GameObject:
   - component: {fileID: 6858643837557631831}
   - component: {fileID: 7299908911861710676}
   - component: {fileID: 2474638971321111843}
-  m_Layer: 0
+  - component: {fileID: 3952099932151519956}
+  m_Layer: 11
   m_Name: white_car3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,6 +358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c304d8bdb1b1dc54c99f1a5d50d6ba96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  naming: 
+  desc: 
   targets:
   - {fileID: 0}
   - {fileID: 0}
@@ -371,7 +374,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.29
-  m_Speed: 5
+  m_Speed: 6
   m_Acceleration: 9
   avoidancePriority: 50
   m_AngularSpeed: 260
@@ -383,6 +386,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &3952099932151519956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6856432433327039501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.06, y: 2.06, z: 3.17}
+  m_Center: {x: 0, y: 1.06, z: 0}
 --- !u!1 &6856630427087789349
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +410,7 @@ GameObject:
   - component: {fileID: 6858761285273059903}
   - component: {fileID: 6870305478522045317}
   - component: {fileID: 6878334739969900985}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: car03_wheel01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
