@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour
 
     [SerializeField] float inertia;
     [SerializeField] float scrollSpeed;
+    [SerializeField] float multitouchSpeed = 0.1f;
     [SerializeField] LayerMask layerMaskForBaseCollider;
     [SerializeField] LayerMask layerMaskForLimits;
 
@@ -96,7 +97,7 @@ public class CameraMovement : MonoBehaviour
             float prevTouchDeltaMag = (touchZeroPrevPos - touchOnePrevPos).magnitude;
             float touchDeltaMag = (touchZero.position - touchOne.position).magnitude;
 
-            cameraZoomMagnitude = (prevTouchDeltaMag - touchDeltaMag);
+            cameraZoomMagnitude = -(prevTouchDeltaMag - touchDeltaMag)*multitouchSpeed;
         }
         else
             cameraZoomMagnitude = 0;
