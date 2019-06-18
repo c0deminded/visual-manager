@@ -9,19 +9,16 @@ public class DeliveryCar : MonoBehaviour
     float stoppingDistance = 1f;
     NavMeshAgent agent;
     int currentTargetId = 0;
-    Coroutine cor;
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        cor = StartCoroutine(UpdateTargets());
+        InvokeRepeating("UpdateTargets",0f,3f);
     }
 
     // Update is called once per frame
-    IEnumerator UpdateTargets()
+    void UpdateTargets()
     {
-        while (true)
-        {
             float currentDist = Vector3.Distance(transform.position, targets[currentTargetId].position);
             //Debug.Log(currentDist + "//" +  stoppingDistance);
             //Debug.Log(currentDist <= stoppingDistance && agent.destination != null);
@@ -35,9 +32,5 @@ public class DeliveryCar : MonoBehaviour
                 if (agent.gameObject.activeInHierarchy)
                     agent.destination = targets[currentTargetId].position;
             }
-            yield return new WaitForSeconds(3f);
-            if (!agent.gameObject.activeInHierarchy)
-                yield return null;
-        }
     }
 }

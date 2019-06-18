@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeliveryManager : MonoBehaviour
 {
     public Route[] routes;
-    int spawnWaves = 0;
+    public int spawnWaves = 0;
     bool shouldStop;
     // Start is called before the first frame update
     void Start()
@@ -31,9 +31,9 @@ public class DeliveryManager : MonoBehaviour
                 GameObject car = Instantiate(routes[i].carPrefab, routes[i].wayPoints[0].position, Quaternion.identity);
                 car.transform.SetParent(GameManager.Instance.representationManager.buildingsRepresentation.transform);
                 car.GetComponent<DeliveryCar>().targets = routes[i].wayPoints;
-                spawnWaves--;
             }
         }
+                spawnWaves--;
     }
 }
 [System.Serializable]

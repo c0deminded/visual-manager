@@ -7984,7 +7984,7 @@ PrefabInstance:
     - target: {fileID: 2215963588126787347, guid: 859aa802d8ef7c44e9a8c8ebf55c7b4d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.2
+      value: 10.37
       objectReference: {fileID: 0}
     - target: {fileID: 2215963588126787347, guid: 859aa802d8ef7c44e9a8c8ebf55c7b4d,
         type: 3}
@@ -28976,8 +28976,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2042346317}
   m_HandleRect: {fileID: 2042346316}
   m_Direction: 2
-  m_Value: 0.9999996
-  m_Size: 0.79260087
+  m_Value: 1
+  m_Size: 0.792601
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -37967,6 +37967,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 744907550}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &745919565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 745919566}
+  m_Layer: 11
+  m_Name: Parking73
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &745919566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745919565}
+  m_LocalRotation: {x: -0, y: -0, z: -0.6025888, w: 0.79805195}
+  m_LocalPosition: {x: -1.31, y: -0.54, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7966993986390094241}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -74.111}
 --- !u!1001 &749686914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39061,7 +39091,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -236, y: 1.7000122}
+  m_AnchoredPosition: {x: -236, y: 1.6999512}
   m_SizeDelta: {x: 879.4, y: 185.59998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &767968110
@@ -45908,6 +45938,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910847457}
   m_CullTransparentMesh: 0
+--- !u!1 &911036566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 911036567}
+  m_Layer: 11
+  m_Name: Parking71
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &911036567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911036566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.81, y: -0.28, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 437153960}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &911198874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51148,7 +51208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1026555543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.26, y: 0, z: 0}
+  m_LocalPosition: {x: 1.09, y: -0.58, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7966993986390094253}
@@ -55098,7 +55158,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1927634337}
   m_Direction: 2
   m_Value: 0.99999976
-  m_Size: 0.72891426
+  m_Size: 0.7289143
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -55637,11 +55697,29 @@ MonoBehaviour:
     - {fileID: 1356276371}
   - carPrefab: {fileID: 4687890343674861848, guid: 97c245b23c85f1a47acba1d5817a2520,
       type: 3}
-    carCount: 3
+    carCount: 2
     wayPoints:
     - {fileID: 455304615}
     - {fileID: 2003879345}
     - {fileID: 1527561678}
+  - carPrefab: {fileID: 6856432433327039501, guid: b0eebfc38aceb8d4b80fb768e069f12e,
+      type: 3}
+    carCount: 3
+    wayPoints:
+    - {fileID: 745919566}
+    - {fileID: 2003879345}
+    - {fileID: 1106651199}
+    - {fileID: 1026555544}
+  - carPrefab: {fileID: 5001530178469456123, guid: e1f3d94f98df6a0478fff8a6462deb28,
+      type: 3}
+    carCount: 5
+    wayPoints:
+    - {fileID: 2011600292}
+    - {fileID: 911036567}
+    - {fileID: 1356276371}
+    - {fileID: 745919566}
+    - {fileID: 1026555544}
+  spawnWaves: 0
 --- !u!1001 &1124352039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76730,7 +76808,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1710382618}
   m_HandleRect: {fileID: 1710382617}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -92336,7 +92414,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2004199875}
   m_HandleRect: {fileID: 2004199874}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -105936,6 +106014,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007403541}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2011600291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2011600292}
+  m_Layer: 11
+  m_Name: Parking8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2011600292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011600291}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.37, y: 1.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7966993986390094243}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2011752477
 GameObject:
   m_ObjectHideFlags: 0
@@ -107301,7 +107409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -236, y: 1.7000122}
+  m_AnchoredPosition: {x: -236, y: 1.6999512}
   m_SizeDelta: {x: 879.4, y: 185.59998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029886186
