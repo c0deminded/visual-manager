@@ -8,11 +8,12 @@ public class InspectorManager : MonoBehaviour
 
     [SerializeField] Text unitName;
     [SerializeField] Text unitDesc;
-    [SerializeField] Text time;
+    [SerializeField] Text [] timeTexts;
 
     [SerializeField] SwitchButton actionsStatsButton;
     [SerializeField] GameObject[] statsAndActions;
     [SerializeField] Panel myPanel;
+    [SerializeField] Panel mainControlPanel;
 
     public static InspectorManager Instance;
     // Start is called before the first frame update
@@ -37,6 +38,8 @@ public class InspectorManager : MonoBehaviour
         unitDesc.text = unit.desc;
         if (!myPanel.isActiveNow)
             myPanel.SwitchState();
+        if (mainControlPanel.isActiveNow)
+            mainControlPanel.SwitchState();
     }
 
     void UpdateTime()
@@ -44,8 +47,12 @@ public class InspectorManager : MonoBehaviour
         int minutes = System.DateTime.Now.Minute;
         int hours = System.DateTime.Now.Hour;
 
-        time.text = (hours > 9 ? hours.ToString() : "0" + hours.ToString()) + ":" +
+        string s = (hours > 9 ? hours.ToString() : "0" + hours.ToString()) + ":" +
                 (minutes > 9 ? minutes.ToString() : "0" + minutes.ToString());
+        foreach (Text t in timeTexts)
+        {
+            t.text = s;
+        }
     }
 
     #region actions and stats

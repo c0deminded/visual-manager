@@ -13,6 +13,7 @@ public class Panel : MonoBehaviour
 
     [SerializeField] Vector3 activePos;
     [SerializeField] Vector3 inactivePos;
+    [SerializeField] bool setToInactivePos;
     Vector3 currentTargetPos;
     public bool isActiveNow = false;
 

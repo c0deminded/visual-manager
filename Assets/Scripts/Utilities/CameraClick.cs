@@ -17,7 +17,7 @@ public class CameraClick : MonoBehaviour
     RaycastHit hit;
     void Update()
     {
-        if (Input.GetMouseButtonUp(0) && GameManager.Instance.inputManager.canClickOnItems)
+        if (Input.GetMouseButtonUp(0) && GameManager.Instance.inputManager.canClickOnItems && !GameManager.Instance.fingerIsOverUI)
         {
             Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit,3000, mask.value);
             if(hit.collider != null)
