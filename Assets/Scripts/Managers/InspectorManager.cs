@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class InspectorManager : MonoBehaviour
@@ -12,8 +13,10 @@ public class InspectorManager : MonoBehaviour
 
     [SerializeField] SwitchButton actionsStatsButton;
     [SerializeField] GameObject[] statsAndActions;
+    [SerializeField] GameObject statsAndActionsContainer;
     [SerializeField] Panel myPanel;
     [SerializeField] Panel mainControlPanel;
+    [SerializeField] TDChart[] tdchart;
 
     public static InspectorManager Instance;
     // Start is called before the first frame update
@@ -25,6 +28,12 @@ public class InspectorManager : MonoBehaviour
         actions[1] = () => { SwitchStatsAndActions(false); };
         actionsStatsButton.InitActions(actions, 0);
         actions[0].Invoke();
+
+        myPanel.AddActionToButton(new UnityAction(()=> 
+        {
+            if(GameManager.Instance.representationManager.currentRepresentation == GameManager.Instance.representationManager.buildingsRepresentation)
+            (GameManager.Instance.representationManager.buildingsRepresentation as MapRepresentation).DeselectAll();
+        }));
     }
 
     void Update()
@@ -40,6 +49,16 @@ public class InspectorManager : MonoBehaviour
             myPanel.SwitchState();
         if (mainControlPanel.isActiveNow)
             mainControlPanel.SwitchState();
+        foreach (var item in tdchart)
+        {
+            item.Regenerate();
+        }
+        #region crutch
+        if (unit is MockUnit)
+            statsAndActionsContainer.SetActive(false);
+        else
+            statsAndActionsContainer.SetActive(true);
+        #endregion
     }
 
     void UpdateTime()

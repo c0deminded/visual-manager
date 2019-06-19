@@ -13,7 +13,7 @@ public class RepresentationManager : MonoBehaviour
     [Header("UI")]
     public SwitchButton switchReprButtons;
 
-    RepresentationObject currentRepresentation = null;
+    public RepresentationObject currentRepresentation = null;
 
     void Start()
     {

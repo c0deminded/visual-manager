@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Panel : MonoBehaviour
@@ -43,6 +44,11 @@ public class Panel : MonoBehaviour
             offArrow.gameObject.SetActive(false);
         }
         isActiveNow = !isActiveNow;
+    }
+
+    public void AddActionToButton(UnityAction action)
+    {
+        controlButton.onClick.AddListener(action);
     }
 
     void Update()

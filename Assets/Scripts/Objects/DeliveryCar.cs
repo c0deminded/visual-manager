@@ -12,6 +12,7 @@ public class DeliveryCar : BusinessUnit, IClickable
 
     public void OnClick()
     {
+        (GameManager.Instance.representationManager.buildingsRepresentation as MapRepresentation).DeselectAll();
         Select();
     }
 
